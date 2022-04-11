@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+.contentHeader {
+  width: 100%;
+  height: 80px;
+
+  padding-top: 25px;
+}
+
+.contentContainer {
+  display: flex;
+  justify-content: space-between;
+
+  width: 1480px;
+  height: 50px;
+
+  margin: 0 auto;
+}
+
+.wer {
+  width: 240px;
+}
+
+.backLink {
+  display: flex;
+  justify-content: flex-start;
+
+  color: #a897bd;
+
+  vertical-align: 5px;
+  font-size: 16px;
+}
+
+.backText {
+  padding-top: 6px;
+}
+
+.backIcon {
+  padding-top: 3px;
+
+  height: 25px;
+  width: 25px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logoText {
+  font-size: 16px;
+  font-weight: 900;
+
+  padding-top: 23px;
+  padding-left: 10px;
+  padding-right: 50px;
+}
+
+.cringe {
+  height: 50px;
+  width: 100%;
+  background-color: gray;
+}
+
+.newsFind {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 5px;
+  width: 860px;
+  height: 45px;
+}
+
+.find {
+  height: 45px;
+  width: 540px;
+}
+
+.input {
+  padding-left: 15px;
+  height: 45px;
+  width: 330px;
+
+  background-color: #ffffff;
+  border: 1px solid #e9e6ed;
+  border-radius: 8px;
+
+  font-size: 16px;
+}
+
+.dispFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonFind {
+  height: 45px;
+  width: 45px;
+  background-color: #ffffff;
+  border: 1px solid #e9e6ed;
+  border-radius: 8px;
+
+  margin-left: 5px;
+}
+
+.auth {
+  background-color: rgb(255, 157, 247);
+
+  margin-top: 10px;
+  width: 110px;
+  height: 45px;
+}
+
+.buttonAuth {
+  background-color: #392b4b;
+  border: 3px solid #eeeeee;
+  color: white;
+
+  padding: 0 20px;
+
+  line-height: 1.5;
+
+  display: flex;
+  justify-content: start;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contentAuth {
+  height: 20px;
+  width: 75px;
+
+  margin: 12px auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.authBut {
+  display: inline;
+  line-height: 30%;
+}
+
+.headerLinks {
+  font-size: 16px;
+  color: #392b4b;
+  font-weight: 700;
+}
+
+.userName {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 150px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.userLogo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}

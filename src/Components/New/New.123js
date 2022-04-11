@@ -1,0 +1,35 @@
+import React, { Component, useEffect } from "react";
+import "./New.css";
+import axios from "axios";
+
+class New extends Component {
+  state = {
+    news: [],
+  };
+
+  componentDidMount() {
+    axios.get(`https://api.spaceflightnewsapi.net/v3/articles`).then((res) => {
+      const news = res.data;
+      this.setState({ news });
+    });
+  }
+
+  render() {
+    return (
+      <>
+        <div>
+          <ul>
+            {this.state.news.map((news) => (
+              <div key="{news.id}">
+                <h1>{news.title}</h1>
+                <h1>{news.id}</h1>
+              </div>
+            ))}
+          </ul>
+        </div>
+      </>
+    );
+  }
+}
+
+export default New;

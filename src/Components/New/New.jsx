@@ -3,10 +3,10 @@ import "./New.css";
 import { useNavigate  } from 'react-router-dom'
 
 const New = (props) => {
-    let publishedAtTime = props.news.updatedAt.slice(11,16);
-    let publishedAtYear = props.news.updatedAt.slice(0,4);
-    let publishedAtMonth = props.news.updatedAt.slice(5,7);
-    let publishedAtDay = props.news.updatedAt.slice(8,10);
+    let publishedAtTime = props.news.publishedAt.slice(11,16);
+    let publishedAtYear = props.news.publishedAt.slice(0,4);
+    let publishedAtMonth = props.news.publishedAt.slice(5,7);
+    let publishedAtDay = props.news.publishedAt.slice(8,10);
 
     const navigate = useNavigate();
 

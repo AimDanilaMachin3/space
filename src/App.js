@@ -16,7 +16,6 @@ function App() {
         <Routes>
           <Route path="/news" element={<News />} />
           <Route path="/" element={<Navigate replace to="/news" />} />
-          {/* <Route path="/news/id" element={<NewPage />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/bookmarks" element={<PinNews />} />    
           <Route path='*' element={<NotFound/>} />

@@ -1,0 +1,26 @@
+.cardWrapper {
+    width: 880px;
+    margin: 0 auto;
+}
+
+.newImg {
+    margin: 30px 0;
+    width: 100%;
+}
+
+.newSummary {
+    font-size: 18px;
+}
+
+.publushInfo{
+    display: flex;
+
+    font-size: 14px;
+    color: gray;
+
+    margin-bottom: 10px;
+}
+
+.sourceLink {
+    margin-left: 10px;
+}

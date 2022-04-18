@@ -1,4 +1,49 @@
 .sort {
-    float: right;
-    margin-right: 15px;
+  float: right;
+  margin-right: 15px;
+}
+
+.finderStyle {
+  display: flex;
+  margin-left: 400px;
+}
+
+.newsFind {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin-top: 5px;
+  width: 860px;
+  height: 45px;
+}
+
+.find {
+  height: 45px;
+  width: 540px;
+}
+
+.input {
+  padding-left: 15px;
+  height: 45px;
+  width: 600px;
+
+  background-color: #ffffff;
+  border: 1px solid #e9e6ed;
+  border-radius: 8px;
+
+  font-size: 16px;
+}
+
+.select {
+  padding-left: 15px;
+  margin-left: 5px;
+  border-radius: 8px;
+  border: 1px solid #e9e6ed;
+  background-color: #ffffff;
+
+  width: 145px;
+
+  font-size: 15px;
+  color: gray;
 }

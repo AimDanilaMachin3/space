@@ -11,6 +11,7 @@
   height: 80px;
 
   padding-top: 25px;
+  margin-bottom: 30px;
 }
 
 .contentContainer {
@@ -66,33 +67,6 @@
   height: 50px;
   width: 100%;
   background-color: gray;
-}
-
-.newsFind {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-top: 5px;
-  width: 860px;
-  height: 45px;
-}
-
-.find {
-  height: 45px;
-  width: 540px;
-}
-
-.input {
-  padding-left: 15px;
-  height: 45px;
-  width: 330px;
-
-  background-color: #ffffff;
-  border: 1px solid #e9e6ed;
-  border-radius: 8px;
-
-  font-size: 16px;
 }
 
 .dispFlex {
@@ -162,6 +136,7 @@
   font-size: 16px;
   color: #392b4b;
   font-weight: 700;
+  margin-left: 20px;
 }
 
 .userName {

@@ -1,6 +1,6 @@
 import React, { Component, useEffect } from "react";
 import "./New.css";
-import { useNavigate  } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const New = (props) => {
     let publishedAtTime = props.news.publishedAt.slice(11,16);
@@ -9,10 +9,6 @@ const New = (props) => {
     let publishedAtDay = props.news.publishedAt.slice(8,10);
 
     const navigate = useNavigate();
-
-    function handleClick() {
-        navigate('/new/'+ props.news.id);
-    }
 
     return (
         <div className="newWrapper">
@@ -28,7 +24,7 @@ const New = (props) => {
                         {publishedAtTime}, {publishedAtDay}.{publishedAtMonth}.{publishedAtYear}
                     </p>
                 </div>
-                <button type="button" className="button" onClick={handleClick}>
+                <button type="button" className="button" onClick={() => navigate('/news/' + props.news.id)}>
                     Подробнее
                 </button>
             </div>

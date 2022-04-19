@@ -8,7 +8,6 @@ const NewPage = () => {
     const params = useParams();
 
     useEffect(() => {
-        console.log("effect 2");
         axios
           .get("https://api.spaceflightnewsapi.net/v3/articles/" + params.id)
           .then((res) => {

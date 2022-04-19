@@ -37,30 +37,17 @@ function News() {
   };
 
   const handleFinder = () => {
-    if(selectChanged == 'titleSelect'){
       axios
       .get(
-        `https://api.spaceflightnewsapi.net/v3/articles?title_contains=` +
-          searchInput
+        `https://api.spaceflightnewsapi.net/v3/articles?` 
+        + selectChanged // 
+        + `_contains=` 
+        + searchInput
       )
       .then((res) => {
         const news = res.data;
         setNews(news);
       });
-      debugger
-    }
-    else if (selectChanged == 'summarySelect'){
-      axios
-      .get(
-        `https://api.spaceflightnewsapi.net/v3/articles?summary_contains=` +
-          searchInput
-      )
-      .then((res) => {
-        const news = res.data;
-        setNews(news);
-      });
-      debugger
-    }
   };
 
   return (
@@ -101,8 +88,9 @@ function News() {
         onChange={(event) => setSelectChanged(event.target.value)} 
         value={selectChanged}
         >
-          <option value="titleSelect">по заголовку</option>
-          <option value="summarySelect">по описанию</option>
+          <option hidden>Поиск по</option>
+          <option value="title">по заголовку</option>
+          <option value="summary">по описанию</option>
         </select>
       </div>
 

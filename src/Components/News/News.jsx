@@ -5,49 +5,84 @@ import "./News.css";
 
 function News() {
   const [news, setNews] = useState([]);
-  const [page, setPage] = useState(0);
   const [searchInput, setSearchInput] = useState("");
   const [selectChanged, setSelectChanged] = useState("");
+  const [modeEntity, setModeEntity] = useState("");
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [fetching, setFetching] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("https://api.spaceflightnewsapi.net/v3/articles?_start=" + page)
-      .then((res) => {
-        setNews(res.data);
-      });
-  }, [page]);
+    debugger;
+    if (fetching) {
+      switch (modeEntity) {
+        case "find":
+          handleFinder();
+          break;
+        case "sort":
+          handleSort();
+          break;
 
-  const handleSort = () => {
-    axios
-      .get(`https://api.spaceflightnewsapi.net/v3/articles?_sort=publishedAt`)
-      .then((res) => {
-        // const news = res.data;
-        setNews(res.data);
-      });
-  };
+        default:
+          handleAllNews();
+          break;
+      }
+    }
+  }, [fetching]);
 
-  const next = () => {
-    setPage(page + 10);
-  };
+  useEffect(() => {
+    document.addEventListener("scroll", scrollHandler);
+    return function () {
+      document.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
 
-  const prev = async () => {
-    if (page >= 10) {
-      setPage(page - 10);
+  const scrollHandler = (e) => {
+    if (
+      e.target.documentElement.scrollHeight -
+        (e.target.documentElement.scrollTop + window.innerHeight) <
+      100
+    ) {
+      setFetching(true);
     }
   };
 
-  const handleFinder = () => {
-      axios
+  const handleAllNews = () => {
+    axios
       .get(
-        `https://api.spaceflightnewsapi.net/v3/articles?` 
-        + selectChanged // 
-        + `_contains=` 
-        + searchInput
+        `https://api.spaceflightnewsapi.net/v3/articles?_start=${currentPage}`
       )
       .then((res) => {
-        const news = res.data;
-        setNews(news);
-      });
+        setNews([...news, ...res.data]);
+        setCurrentPage((prevState) => prevState + 10);
+      })
+      .finally(() => setFetching(false));
+  };
+
+  const handleSort = () => {
+    axios
+      .get(
+        `https://api.spaceflightnewsapi.net/v3/articles?_sort=publishedAt&_start=${currentPage}`
+      )
+      .then((res) => {
+        setNews([...news, ...res.data]);
+        setCurrentPage((prevState) => prevState + 10);
+      })
+      .finally(() => setFetching(false));
+  };
+
+  const handleFinder = () => {
+    axios
+      .get(
+        `https://api.spaceflightnewsapi.net/v3/articles?` +
+          `${selectChanged}_contains=${searchInput}` +
+          `&_start=${currentPage}`
+      )
+      .then((res) => {
+        setNews([...news, ...res.data]);
+        setCurrentPage((prevState) => prevState + 10);
+      })
+      .finally(() => setFetching(false));
   };
 
   return (
@@ -61,7 +96,14 @@ function News() {
           onChange={(event) => setSearchInput(event.target.value)}
         />
 
-        <button className="buttonFind" onClick={handleFinder}>
+        <button
+          className="buttonFind"
+          onClick={() => {
+            setNews([]);
+            setFetching(true);
+            setModeEntity("find");
+          }}
+        >
           <svg
             width="24"
             height="24"
@@ -82,11 +124,11 @@ function News() {
           </svg>
         </button>
 
-        <select 
-        className="select"
-        id="select" 
-        onChange={(event) => setSelectChanged(event.target.value)} 
-        value={selectChanged}
+        <select
+          className="select"
+          id="select"
+          onChange={(event) => setSelectChanged(event.target.value)}
+          value={selectChanged}
         >
           <option hidden>Поиск по</option>
           <option value="title">по заголовку</option>
@@ -95,23 +137,17 @@ function News() {
       </div>
 
       <div className="sort">
-        <a onClick={handleSort}>Сортировка по дате публикации</a>
+        <a
+          onClick={() => {
+            setNews([]);
+            setFetching(true);
+            setModeEntity("sort");
+          }}
+        >
+          Сортировка по дате публикации
+        </a>
       </div>
       <div>
-        <div className="paginationWrapper">
-          <div className="sort">
-            <a className="sort" onClick={next}>
-              <img src="https://img.icons8.com/stickers/100/000000/forward.png" />
-            </a>
-          </div>
-
-          <div className="sort">
-            <a className="sort" onClick={prev}>
-              <img src="https://img.icons8.com/stickers/100/000000/back.png" />
-            </a>
-          </div>
-        </div>
-
         <div>
           {news.map((news) => (
             <New news={news} key={news.id} />

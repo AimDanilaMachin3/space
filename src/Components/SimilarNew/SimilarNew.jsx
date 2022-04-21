@@ -17,7 +17,6 @@ const SimilarNew = (props) => {
           onClick={() => navigate("/news/" + props.similarNews.id)}
         >
           {props.similarNews.title}
-          {props.similarNews.id}
         </button>
       </div>
     );

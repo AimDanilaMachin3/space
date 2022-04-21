@@ -11,9 +11,9 @@ function News() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
+  const [sortDesc, setSortDesc] = useState(false);
 
   useEffect(() => {
-    debugger;
     if (fetching) {
       switch (modeEntity) {
         case "find":
@@ -28,7 +28,7 @@ function News() {
           break;
       }
     }
-  }, [fetching]);
+  }, [fetching, modeEntity]);
 
   useEffect(() => {
     document.addEventListener("scroll", scrollHandler);
@@ -85,6 +85,15 @@ function News() {
       .finally(() => setFetching(false));
   };
 
+  const setupSort = () => {
+    setNews([]);
+    setFetching(true);
+    setCurrentPage(1);
+    setSortDesc(!sortDesc);
+    let sortColumn = sortDesc ? "" : "sort";
+    setModeEntity(sortColumn);
+  };
+
   return (
     <>
       <div className="finderStyle">
@@ -137,15 +146,7 @@ function News() {
       </div>
 
       <div className="sort">
-        <a
-          onClick={() => {
-            setNews([]);
-            setFetching(true);
-            setModeEntity("sort");
-          }}
-        >
-          Сортировка по дате публикации
-        </a>
+        <a onClick={setupSort}>Сортировка по дате публикации</a>
       </div>
       <div>
         <div>

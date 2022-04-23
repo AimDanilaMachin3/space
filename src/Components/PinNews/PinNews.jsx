@@ -34,7 +34,7 @@ const PinNew = () => {
         </div>
         <Pagination 
             newsPerPage = {newsPerPage}
-            totalNews = {newPins.length}
+            totalNews = {pinnedNews.length}
             paginate = {paginate}
             currentPage = {currentPage}
         />

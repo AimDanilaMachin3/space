@@ -4,11 +4,10 @@ import "./Pagination.css";
 const Pagination = ({ newsPerPage, totalNews, paginate, currentPage }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i < Math.ceil(totalNews / newsPerPage); i++) {
+  debugger
+  for (let i = 1; i <= Math.ceil(totalNews / newsPerPage); i++) {
     pageNumbers.push(i);
   }
-
-  //   let qwer = number == currentPage ? 'active' : '';
 
   return (
     <div className="center">

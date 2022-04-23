@@ -3,11 +3,10 @@ import "./New.css";
 import { useNavigate } from 'react-router-dom'
 
 const New = (props) => {
-    let publishedAtTime = props.news.publishedAt.slice(11,16);
-    let publishedAtYear = props.news.publishedAt.slice(0,4);
-    let publishedAtMonth = props.news.publishedAt.slice(5,7);
-    let publishedAtDay = props.news.publishedAt.slice(8,10);
-
+    // let publishedAtTime = props.news.publishedAt.slice(11,16);
+    // let publishedAtYear = props.news.publishedAt.slice(0,4);
+    // let publishedAtMonth = props.news.publishedAt.slice(5,7);
+    // let publishedAtDay = props.news.publishedAt.slice(8,10);
     const navigate = useNavigate();
 
     return (
@@ -20,9 +19,9 @@ const New = (props) => {
                     <a href={props.news.url} target="_blank">
                         {props.news.newsSite}
                     </a>
-                    <p>
+                    {/* <p>
                         {publishedAtTime}, {publishedAtDay}.{publishedAtMonth}.{publishedAtYear}
-                    </p>
+                    </p> */}
                 </div>
                 <button type="button" className="button" onClick={() => navigate('/news/' + props.news.id)}>
                     Подробнее

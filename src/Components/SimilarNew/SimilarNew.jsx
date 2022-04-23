@@ -8,7 +8,6 @@ const SimilarNew = (props) => {
   const params = useParams();
 
   if (params.id != props.similarNews.id) {
-    debugger;
     return (
       <div className="similarWrapper">
         <button
@@ -21,7 +20,6 @@ const SimilarNew = (props) => {
       </div>
     );
   } else {
-    debugger;
     return <></>;
   }
 };

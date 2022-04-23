@@ -149,11 +149,9 @@ function News() {
         <a onClick={setupSort}>Сортировка по дате публикации</a>
       </div>
       <div>
-        <div>
-          {news.map((news) => (
-            <New news={news} key={news.id} />
-          ))}
-        </div>
+        {news.map((news) => (
+          <New news={news} key={news.id} />
+        ))}
       </div>
     </>
   );

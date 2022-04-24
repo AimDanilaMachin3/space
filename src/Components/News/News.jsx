@@ -93,9 +93,8 @@ function News() {
     let sortColumn = sortDesc ? "" : "sort";
     setModeEntity(sortColumn);
   };
-
   return (
-    <>
+    <div className="main-container">
       <div className="finderStyle">
         <input
           type="text"
@@ -143,17 +142,18 @@ function News() {
           <option value="title">по заголовку</option>
           <option value="summary">по описанию</option>
         </select>
+
+        <div className="sort">
+          <a onClick={setupSort}>Сортировка по дате публикации</a>
+        </div>
       </div>
 
-      <div className="sort">
-        <a onClick={setupSort}>Сортировка по дате публикации</a>
-      </div>
       <div>
         {news.map((news) => (
           <New news={news} key={news.id} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

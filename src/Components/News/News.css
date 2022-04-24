@@ -1,11 +1,30 @@
 .sort {
-  float: right;
-  margin-right: 15px;
+  padding: 15px 15px;
+  margin-left: 5px;
+  border-radius: 8px;
+  border: 1px solid #e9e6ed;
+  background-color: #ffffff;
+
+  width: 230px;
+
+  font-size: 15px;
+  color: gray;
+
+  cursor: pointer;
+}
+
+.buttonFind {
+  width: 45px;
+  background-color: #ffffff;
+  border: 1px solid #e9e6ed;
+  border-radius: 8px;
+
+  margin-left: 5px;
 }
 
 .finderStyle {
   display: flex;
-  margin-left: 400px;
+  justify-content: center;
 }
 
 .newsFind {
@@ -25,7 +44,6 @@
 
 .input {
   padding-left: 15px;
-  height: 45px;
   width: 600px;
 
   background-color: #ffffff;

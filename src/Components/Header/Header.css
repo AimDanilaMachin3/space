@@ -52,6 +52,9 @@
 .logo {
   display: flex;
   justify-content: center;
+  color: black;
+
+  cursor: pointer;
 }
 
 .logoText {
@@ -73,16 +76,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.buttonFind {
-  height: 45px;
-  width: 45px;
-  background-color: #ffffff;
-  border: 1px solid #e9e6ed;
-  border-radius: 8px;
-
-  margin-left: 5px;
 }
 
 .auth {

@@ -15,10 +15,10 @@ class Header extends Component {
       <>
         <div className="contentHeader">
           <div className="contentContainer">
-            <div className="logo wer">
+            <NavLink to="/news" className="logo wer">
               <img src={logo} alt="" className="logoImg" />
               <p className="logoText">SpaceNews</p>
-            </div>
+            </NavLink>
 
             <div className="newsFind">
               <NavLink to="/news" className="headerLinks">

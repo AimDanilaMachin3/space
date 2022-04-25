@@ -1,5 +1,6 @@
 import React, { Component, useEffect } from "react";
 import "./New.css";
+import "./NewMedia.css";
 import { useNavigate } from 'react-router-dom'
 
 const New = (props) => {
@@ -14,9 +15,9 @@ const New = (props) => {
             <img src={props.news.imageUrl} 
                 alt="imageUrl" className="imgNew"/>
             <div className="post">
-                <h1>{props.news.title}</h1>
+                <h1 className="titleHeader">{props.news.title}</h1>
                 <div className="dispFlex">
-                    <a href={props.news.url} target="_blank">
+                    <a href={props.news.url} target="_blank" className="source">
                         {props.news.newsSite}
                     </a>
                     {/* <p>

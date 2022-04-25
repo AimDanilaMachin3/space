@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import "./About.css";
+import "./AboutMedia.css";
 
 class About extends Component {
     render() {
         return (
-            <div className="container mt-5 d-flex justify-content-center">
-                <div className="card">
+            <>
+            <div className="container">
+                <div>
                     <img
                     src="https://avatars.githubusercontent.com/u/58563393?v=4"
                     className="cardImg"
@@ -22,6 +24,7 @@ class About extends Component {
                     </div>
                 </div>
           </div>
+          </>
         );
     }
 }

@@ -1,4 +1,5 @@
 import "./NewPage.css";
+import "./NewPageMedia.css";
 import { useParams } from "react-router";
 import React, { Component, useEffect, useState } from "react";
 import axios from "axios";
@@ -61,7 +62,7 @@ const NewPage = () => {
             Добавить в закладку
           </button>
         </div>
-        <h1>{newEntity.title}</h1>
+        <h1 className="titleHeaderPage">{newEntity.title}</h1>
         <img src={newEntity.imageUrl} alt="newImage" className="newImg" />
 
         <p className="newSummary">{newEntity.summary}</p>

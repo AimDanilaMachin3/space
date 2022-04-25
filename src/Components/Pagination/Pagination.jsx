@@ -4,7 +4,6 @@ import "./Pagination.css";
 const Pagination = ({ newsPerPage, totalNews, paginate, currentPage }) => {
   const pageNumbers = [];
 
-  debugger
   for (let i = 1; i <= Math.ceil(totalNews / newsPerPage); i++) {
     pageNumbers.push(i);
   }

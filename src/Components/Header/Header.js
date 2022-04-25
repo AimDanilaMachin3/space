@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Header.css";
+import "./HeaderMedia.css";
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,7 +16,7 @@ class Header extends Component {
       <>
         <div className="contentHeader">
           <div className="contentContainer">
-            <NavLink to="/news" className="logo wer">
+            <NavLink to="/news" className="logo">
               <img src={logo} alt="" className="logoImg" />
               <p className="logoText">SpaceNews</p>
             </NavLink>

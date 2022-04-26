@@ -11,6 +11,8 @@ const NewPage = () => {
     title: "",
     id: 0,
   });
+
+  const [isPinned, setIsPinned] = useState(false);
   
   const params = useParams();
 
@@ -21,6 +23,13 @@ const NewPage = () => {
         setNewEntity(res.data);
       });
   }, [params]);
+
+  useEffect(() => {
+    if (localStorage.getItem("bookmarks")) {
+      const exist = JSON.parse(localStorage.getItem("bookmarksId")).indexOf(newEntity.id) != -1;
+      setIsPinned(exist);
+    }
+  }, []);
 
   let temp = [];
   let tempId = [];
@@ -38,6 +47,7 @@ const NewPage = () => {
       localStorage.setItem("bookmarks", JSON.stringify(temp));
       localStorage.setItem("bookmarksId", JSON.stringify(tempId));
     } else {
+      // const newArr = temp.filter(item => item.id !== newEntity.id);
       temp.splice(tempId.indexOf(Number(id)), 1);
       tempId.splice(tempId.indexOf(Number(id)), 1);
       localStorage.setItem("bookmarks", JSON.stringify(temp));
@@ -58,9 +68,11 @@ const NewPage = () => {
           <a href={newEntity.url} target="_blank" className="sourceLink">
             {newEntity.newsSite}
           </a>
+          
           <button type="button" className="buttonStore" onClick={handleClick}>
-            Добавить в закладку
+           { isPinned ? 'Удалить из закладок' : 'Добавить в закладку'} 
           </button>
+          
         </div>
         <h1 className="titleHeaderPage">{newEntity.title}</h1>
         <img src={newEntity.imageUrl} alt="newImage" className="newImg" />

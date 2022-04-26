@@ -32,12 +32,14 @@ const PinNew = () => {
             <New news={newPins} key={newPins.id} />
           ))}
         </div>
+        {pinnedNews.length > newsPerPage &&
         <Pagination 
             newsPerPage = {newsPerPage}
             totalNews = {pinnedNews.length}
             paginate = {paginate}
             currentPage = {currentPage}
-        />
+        /> 
+        }
       </div>
     );
   } else {
